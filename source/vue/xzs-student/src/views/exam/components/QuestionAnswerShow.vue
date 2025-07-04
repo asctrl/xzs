@@ -62,11 +62,11 @@
         <el-rate disabled v-model="question.difficult" class="question-show-item"></el-rate>
       </div>
       <br/>
-      <div class="question-answer-show-item" style="line-height: 1.8">
+      <div class="question-answer-show-item" v-if="false" style="line-height: 1.8">
         <span class="question-show-item">解析：</span>
         <span v-html="question.analyze" class="q-item-span-content" />
       </div>
-      <div class="question-answer-show-item">
+      <div class="question-answer-show-item" v-if="false">
         <span class="question-show-item">正确答案：</span>
         <span v-if="qType==1||qType==2 ||qType==5" v-html="question.correct" class="q-item-span-content"/>
         <span v-if="qType==3" v-html="trueFalseFormatter(question)" class="q-item-span-content"/>

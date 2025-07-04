@@ -3,6 +3,7 @@ package com.mindskip.xzs.configuration.spring.mvc;
 import com.mindskip.xzs.configuration.property.SystemConfig;
 import com.mindskip.xzs.configuration.spring.wx.TokenHandlerInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -20,6 +21,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     private final TokenHandlerInterceptor tokenHandlerInterceptor;
     private final SystemConfig systemConfig;
+
+    @Value("${file.upload.path}")
+    private String uploadPath;
 
     /**
      * Instantiates a new Web mvc configuration.
@@ -44,6 +48,11 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/")
+                .setCachePeriod(31556926);
+        
+        String path = "file:" + uploadPath + "/";
+        registry.addResourceHandler("/uploads/**")
+                .addResourceLocations(path)
                 .setCachePeriod(31556926);
     }
 
