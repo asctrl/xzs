@@ -260,6 +260,23 @@ const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/config',
+    component: Layout,
+    name: 'ConfigPage',
+    meta: {
+      title: '系统配置',
+      icon: 'el-icon-setting'
+    },
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/ConfigPage.vue'),
+        name: 'ConfigPageIndex',
+        meta: { title: '系统配置', noCache: true }
+      }
+    ]
+  },
   { path: '*',
     hidden: true,
     component: () => import('@/views/error-page/404'),

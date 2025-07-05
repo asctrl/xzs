@@ -286,4 +286,24 @@ CREATE TABLE `t_user_token`  (
 -- Records of t_user_token
 -- ----------------------------
 
+
+-- ----------------------------
+-- Table structure for t_config
+-- ----------------------------
+DROP TABLE IF EXISTS `t_config`;
+CREATE TABLE t_config (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  config_key VARCHAR(64) NOT NULL UNIQUE,
+  config_value VARCHAR(255) NOT NULL,
+  description VARCHAR(255)
+);
+
+-- 初始化数据
+INSERT INTO t_config (config_key, config_value, description) VALUES
+('show_analyze', '0', '是否显示解析'),
+('show_correct', '0', '是否显示正确答案');
+-- ----------------------------
+-- Table structure for t_config
+-- ----------------------------
+
 SET FOREIGN_KEY_CHECKS = 1;
