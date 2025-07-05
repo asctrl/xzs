@@ -135,6 +135,13 @@ const constantRoutes = [
         name: 'shortAnswerPage',
         meta: { title: '简答题编辑', noCache: true, activeMenu: '/exam/question/list' },
         hidden: true
+      },
+      {
+        path: 'question/batch-add',
+        component: () => import('@/views/exam/question/batch-add'),
+        name: 'batchAddPage',
+        meta: { title: '批量添加题目', noCache: true, activeMenu: '/exam/question/list' },
+        hidden: true
       }
     ]
   },

@@ -28,6 +28,7 @@
           </el-button>
           <el-button slot="reference" type="primary" class="link-left">添加</el-button>
         </el-popover>
+        <el-button type="success" class="link-left" @click="$router.push('/exam/question/batch-add')">批量添加</el-button>
       </el-form-item>
     </el-form>
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
